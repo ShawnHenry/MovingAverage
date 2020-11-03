@@ -44,7 +44,7 @@ So all we need is to keep track of the last N elements in a stream, calculate th
 
  - Formula for sliding window and ring buffer
 
-This is a sliding window problem that can be resolved by a ring buffer which contains the sliding window of size N (last moving N elements) to save spaces. In the beginning, the sliding window head is incresed from 0 by 1 when an element is appended to the sliding window until the sliding window is full (sliding window head is N-1). After that, the sliding window head is still incremented by 1 and becomes N; since it is a ring buffer, the window head is actually going back to the index 0 by following the formula as follows:
+This is a sliding window problem that can be resolved by a ring buffer which contains the sliding window of size N (last moving N elements) to save spaces. In the beginning, the sliding window head is increased from 0 by 1 when an element is appended to the sliding window until the sliding window is full (sliding window head is N-1). After that, the sliding window head is still incremented by 1 and becomes N; since it is a ring buffer, the window head is actually going back to the index 0 by following the formula as follows:
 
 	currentHead = (previousHead + 1) % N
 
@@ -60,7 +60,7 @@ The space complexity is O(1) as only the last N elements of window size in a str
 Below are some other technical debts present within current implementation:
 
  1. This implementation is NOT thread safe. Concurrency primitives and utilities like synchronized, lock, etc. can be implemented to overcome it.
- 2. There is potential precison issue as the data type "double" is used to define the contract. BigDecimal can be used to resolve the issue.
+ 2. There is potential precision issue as the data type "double" is used to define the contract. BigDecimal can be used to resolve the issue.
 
 
 ## Run and test the application
@@ -75,6 +75,7 @@ Below are some other technical debts present within current implementation:
 Within IDE, run the method "main" within the class "Main.java", then enter the window size according to the prompt. Test cases can be run with "MovingAverageCalculatorImplTest.java".
 
 **Run as JAR**
+
 To package as JAR, got to the project root folder, run the command as follows:
 
 	mvn clean package
@@ -83,5 +84,5 @@ To run the JAR, run the command as follows:
 
 	java -jar target/MovingAverage-1.0-SNAPSHOT.jar
 
-then enter the window size according to the prompt. 
+then enter the window size according to the prompt.
 
